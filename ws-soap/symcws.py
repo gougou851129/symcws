@@ -4,13 +4,7 @@
 # Symantec, GeoTrust and Thawte API Library
 # This library has been written by Tobias Zatti
 # Contact: tobias_zatti@symantec.com
-#
-# File name: SymAPI.py
-#
-# Requirements:
-# suds module ( https://fedorahosted.org/suds/ )
-#
-#################################################
+
 # System check to only support python 2.7
 import sys
 if sys.version_info[:2] > (2,7):
@@ -20,46 +14,10 @@ from suds.client import Client
 from suds.transport.http import HttpTransport
 import urllib2, urllib, httplib, socket
 import ssl
-#httplib.HTTPConnection.debuglevel = 5
-
 # Error Codes:
 # 1000 - No credentials set
 
-#################################################
-# Class SymAPI
-#
-# @version   1.3
-# @date	  07/05/2015
-# @author    Tobias Zatti <tobias_zatti@symantec.com>
-# @copyright Symantec Corp. 2014, 2015
-#
-# CHANGELOG:
-# v1.3:
-# - Added new API functions released in April 2015:
-#   QUERY:
-#       - GetModifiedOrderSummary
-#       - GetModifiedPreAuthOrderSummary
-# - Added setApiVersion operation to make use of ApiVersion in ReqestHeaders.
-# v1.2:
-# - Added new API functions released world-wide in February 2015 including
-#   QUERY:
-#       - GetPreAuthOrdersByDateRange
-#       - GetPreAuthOrderByPartnerOrderID
-#   ORDER:
-#       - OrderPreAuthentication
-#       - ValidatePreAuthenticationData
-# - Added new parameters to existing functions.
-# v1.1:
-# - Added Proxy support.
-#   Proxy can be set using:
-#       setProxy(url, port) 
-#   function.
-#
-# v1.0
-# Initial version 
- ################################################
-
-class SymAPI:
+class symcws:
     # URL to WSDL-file for test environment order-API
     url_orderAPI_demo = 'https://test-api.geotrust.com/webtrust/order.jws?WSDL' 
     # URL to WSDL-file for productive environment order-API
