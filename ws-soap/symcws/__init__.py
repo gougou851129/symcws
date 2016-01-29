@@ -17,7 +17,7 @@ import ssl
 # Error Codes:
 # 1000 - No credentials set
 
-class symcws:
+class Symcws:
     # URL to WSDL-file for test environment order-API
     url_orderAPI_demo = 'https://test-api.geotrust.com/webtrust/order.jws?WSDL' 
     # URL to WSDL-file for productive environment order-API
