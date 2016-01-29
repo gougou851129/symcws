@@ -2,13 +2,14 @@
 For a fully-detailed API documentation, please go to https://developers.websecurity.symantec.com
 
 #Changelog
-##v1.3:
+###v1.3:
  - Added new API functions released in April 2015:
    QUERY:
        - GetModifiedOrderSummary
        - GetModifiedPreAuthOrderSummary
- - Added setApiVersion operation to make use of ApiVersion in ReqestHeaders.
- ##v1.2:
+ - Added setApiVersion operation to make use of ApiVersion in ReqestHeaders. 
+ 
+ ###v1.2:
  - Added new API functions released world-wide in February 2015 including
    QUERY:
        - GetPreAuthOrdersByDateRange
@@ -17,11 +18,12 @@ For a fully-detailed API documentation, please go to https://developers.websecur
        - OrderPreAuthentication
        - ValidatePreAuthenticationData
  - Added new parameters to existing functions.
-##v1.1:
+ 
+###v1.1:
  - Added Proxy support.
    Proxy can be set using:
        setProxy(url, port) 
    function.
 
-## v1.0
+### v1.0
 Initial version 
