@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'symcws',
   packages = ['symcws'],
-  version = '1.3',
+  version = '1.4',
   description = 'A Python library for the Symantec Website Security SOAP API',
   author = 'Tobias Zatti',
   author_email = 'tobias_zatti@symantec.com',
