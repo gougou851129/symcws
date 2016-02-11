@@ -7,7 +7,7 @@ setup(
   author = 'Tobias Zatti',
   author_email = 'tobias_zatti@symantec.com',
   url = 'https://github.com/tzatti/symcws',
-  download_url = 'https://github.com/tzatti/symcws/tarball/1.3',
+  download_url = 'https://github.com/tzatti/symcws/tarball/1.4',
   keywords = ['SOAP', 'API', 'Symantec', 'Reseller', 'Website Security'],
   classifiers = []
 )

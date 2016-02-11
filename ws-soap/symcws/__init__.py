@@ -21,7 +21,7 @@ if sys.version_info[:2] > (2, 7):
 # Error Codes:
 # 1000 - No credentials set
 
-class symcws:
+class Symcws:
     # URL to WSDL-file for test environment order-API
     url_orderDemo = 'https://test-api.geotrust.com/webtrust/order.jws?WSDL'
     # URL to WSDL-file for productive environment order-API
