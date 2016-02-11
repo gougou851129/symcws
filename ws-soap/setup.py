@@ -8,7 +8,6 @@ setup(
   author_email = 'tobias_zatti@symantec.com',
   url = 'https://github.com/tzatti/symcws',
   download_url = 'https://github.com/tzatti/symcws/tarball/1.3',
-  keywords = ['SOAP', 'API', 'Symantece', 'Reseller', 'Website Security'],
-  install_requires = ['suds']
+  keywords = ['SOAP', 'API', 'Symantec', 'Reseller', 'Website Security'],
   classifiers = []
 )
