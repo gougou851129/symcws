@@ -36,5 +36,4 @@ For a fully-detailed API documentation, please go to https://developers.websecur
 ## v1.0
 =======
 ### v1.0
->>>>>>> 60a3b6f2d3080e88fef54a54a5bc2bcade9d6f3e
 Initial version 
