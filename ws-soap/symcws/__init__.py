@@ -12,11 +12,7 @@ from suds.client import Client
 #from suds.transport.http import HttpTransport
 import suds_requests
 import sys
-import urllib2, urllib, httplib, socket
-# System check to only support python 2.7
-if sys.version_info[:2] > (2, 7):
-    print "This library only works with Python 2.7."
-    exit()
+import urllib.request, urllib.error, urllib.parse, urllib.request, urllib.parse, urllib.error, http.client, socket
 
 # Error Codes:
 # 1000 - No credentials set
@@ -208,8 +204,8 @@ class Symcws:
         """
         if self.verbose or force:
             if type == "err":
-                print "ERROR: ",
-            print string
+                print("ERROR: ", end=' ')
+            print(string)
 
     """	
     ** HELPER FUNCTIONS **
@@ -397,7 +393,7 @@ class Symcws:
                                  replayToken)
         r.PartnerOrderID = partnerOrderID
 
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderQueryOptions:
                 # print "  - %s -> %s" % (k,v)
                 r.OrderQueryOptions[k] = v
@@ -435,14 +431,14 @@ class Symcws:
         self.log("Generating request..")
         r = self.__prepareClient("query", "GetFulfillment", replayToken)
         r.PartnerOrderID = partnerOrderID
-        if 'ReturnCACerts' in options.keys():
-            print "ReturnCACerts --> %s" % options['ReturnCACerts']
+        if 'ReturnCACerts' in list(options.keys()):
+            print("ReturnCACerts --> %s" % options['ReturnCACerts'])
             r.ReturnCACerts = options['ReturnCACerts']
-        if 'ReturnPKCS7Cert' in options.keys():
-            print "ReturnPKCS7Cert --> %s" % options['ReturnPKCS7Cert']
+        if 'ReturnPKCS7Cert' in list(options.keys()):
+            print("ReturnPKCS7Cert --> %s" % options['ReturnPKCS7Cert'])
             r.ReturnPKCS7Cert = options['ReturnPKCS7Cert']
-        if 'ReturnIconScript' in options.keys():
-            print "ReturnIconScript --> %s" % options['ReturnIconScript']
+        if 'ReturnIconScript' in list(options.keys()):
+            print("ReturnIconScript --> %s" % options['ReturnIconScript'])
             r.ReturnIconScript = options['ReturnIconScript']
         self.log(r)
         self.log("Connecting to API..")
@@ -468,12 +464,12 @@ class Symcws:
         r.FromDate = fromDate
         r.ToDate = toDate
 
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderQueryOptions:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderQueryOptions[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
         self.log(r)
         self.log("Connecting to API..")
@@ -556,12 +552,12 @@ class Symcws:
         r.FromDate = fromDate
         r.ToDate = toDate
 
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderQueryOptions:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderQueryOptions[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
         self.log(r)
         self.log("Connecting to API..")
@@ -696,7 +692,7 @@ class Symcws:
         r.OrganizationInfo = organizationInfo
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderParameters:
                 # print "  - %s -> %s" % (k,v)
                 r.OrderParameters[k] = v
@@ -752,12 +748,12 @@ class Symcws:
         r.OrganizationInfo = organizationInfo
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderParameters:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderParameters[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
         self.log(r)
         self.log("Connecting to API..")
@@ -789,12 +785,12 @@ class Symcws:
         r.AuthData.ContactInfo.ContactPair = contactPairs
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderParameters:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderParameters[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
         self.log(r)
         self.log("Connecting to API..")
@@ -823,14 +819,14 @@ class Symcws:
         r.ReissueEmail = reissueEmail
         r.OrderChanges = orderChanges
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderParameters:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderParameters[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.Reissue(r)
 
@@ -858,14 +854,14 @@ class Symcws:
         r.RequestorEmail = requestorEmail
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OperationData:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OperationData[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.ModifyOrder(r)
 
@@ -884,7 +880,7 @@ class Symcws:
         r.OrderRequestHeader.PartnerOrderID = partnerOrderID
         r.ApproverEmail = approverEmail
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.ChangeApproverEmail(r)
 
@@ -910,18 +906,18 @@ class Symcws:
                                  replayToken)
 
         r.OrderRequestHeader.ProductCode = productCode
-        if 'PartnerOrderID' in options.keys():
+        if 'PartnerOrderID' in list(options.keys()):
             r.OrderRequestHeader.PartnerOrderID = options['PartnerOrderID']
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.OrderParameters:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderParameters[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.ValidateOrderParameters(r)
 
@@ -945,7 +941,7 @@ class Symcws:
         r.OrderRequestHeader.PartnerOrderID = partnerOrderID
         r.ResendEmailType = resendMailType
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.ResendEmail(r)
 
@@ -979,10 +975,10 @@ class Symcws:
 
         r.Certificate = certificate
         r.RevokeReason = revokeReason
-        if 'SerialNumber' in options.keys():
+        if 'SerialNumber' in list(options.keys()):
             r.SerialNumber = options['SerialNumber']
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.Revoke(r)
 
@@ -1021,14 +1017,14 @@ class Symcws:
         r.AuthData.ContactInfo.ContactPair = contactPairs
 
         # Optional Parameters
-        for (k, v) in options.items():
+        for (k, v) in list(options.items()):
             if k in r.AuthData:
-                print "  - %s -> %s" % (k, v)
+                print("  - %s -> %s" % (k, v))
                 r.OrderParameters[k] = v
             else:
-                print "  - %s is not a valid parameter" % k
+                print("  - %s is not a valid parameter" % k)
 
-        print r
+        print(r)
         self.log("Connecting to API..")
         return self.client.service.ValidatePreAuthenticationData(r)
 
